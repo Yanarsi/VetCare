@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Мои питомцы - VetCare</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__content">
+          <div class="logo"><a href="index.html" class="logo__link"><i class="fa-solid fa-paw logo__icon"></i><span class="logo__text">VetCare</span></a></div>
+          <nav class="nav"><ul class="nav__list"></ul></nav>
+          <div class="header__buttons"><a href="login.html" class="btn btn--outline">Войти</a><a href="register.html" class="btn btn--primary">Регистрация</a></div>
+          <div class="user-menu"><span class="user-name">Пользователь</span><div class="user-avatar"><i class="fa-solid fa-user"></i></div><button class="btn btn--outline btn--sm" id="logoutBtn">Выйти</button></div>
+          <button class="mobile-menu-toggle" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-header">
+        <div class="container">
+          <h1 class="page-title">Мои питомцы</h1>
+          <p class="page-description">Профили питомцев, данные для врача и быстрый доступ к медкартам</p>
+        </div>
+      </section>
+
+      <section class="dashboard">
+        <div class="container">
+          <div class="dashboard-layout">
+            <div class="dashboard-panel">
+              <h2 id="petFormTitle">Добавить питомца</h2>
+              <form id="petForm">
+                <div class="form-group">
+                  <label for="petName" class="form-label">Кличка питомца *</label>
+                  <input type="text" id="petName" class="form-input" required />
+                </div>
+                <div class="form-group">
+                  <label for="petType" class="form-label">Тип питомца *</label>
+                  <select id="petType" class="form-select" required>
+                    <option value="">Выберите</option>
+                    <option value="cat">Кошка</option>
+                    <option value="dog">Собака</option>
+                    <option value="bird">Птица</option>
+                    <option value="rodent">Грызун</option>
+                    <option value="rabbit">Кролик</option>
+                    <option value="fish">Рыбка</option>
+                    <option value="other">Другое</option>
+                  </select>
+                </div>
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="breed" class="form-label" id="breedLabel">Порода / вид</label>
+                    <input
+                      type="text"
+                      id="breed"
+                      class="form-input"
+                      autocomplete="off"
+                      placeholder="Например, британская, шпиц, волнистый попугай"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="age" class="form-label">Возраст</label>
+                    <input type="number" id="age" class="form-input" min="0" step="1" />
+                  </div>
+                  <div class="form-group">
+                    <label for="weight" class="form-label">Вес, кг</label>
+                    <input type="number" id="weight" class="form-input" min="0" step="0.1" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="notes" class="form-label">Особенности</label>
+                  <textarea id="notes" class="form-textarea" rows="4" placeholder="Аллергии, характер, питание, хронические состояния"></textarea>
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn--primary">Сохранить</button>
+                  <button type="button" id="cancelPetEdit" class="btn btn--outline" style="display: none">Отмена</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="dashboard-panel">
+              <h2>Список питомцев</h2>
+              <div id="clientPetsList" class="pets-grid"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/clinic-data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/clinic-pages.js"></script>
+    <script>document.addEventListener("DOMContentLoaded", initClientPetsPage);</script>
+  </body>
+</html>

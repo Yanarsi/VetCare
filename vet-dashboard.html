@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Панель ветеринара - VetCare</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__content">
+          <div class="logo">
+            <a href="index.html" class="logo__link">
+              <i class="fa-solid fa-paw logo__icon"></i>
+              <span class="logo__text">VetCare</span>
+            </a>
+          </div>
+          <nav class="nav">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="vet-dashboard.html" class="nav__link nav__link--active"
+                  >Панель врача</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <div class="header__buttons">
+            <a href="login.html" class="btn btn--outline">Войти</a>
+            <a href="register.html" class="btn btn--primary">Регистрация</a>
+          </div>
+          <div class="user-menu">
+            <span class="user-name">Доктор Иванов</span>
+            <div class="user-avatar">
+              <i class="fa-solid fa-user-md"></i>
+            </div>
+            <button class="btn btn--outline btn--sm" id="logoutBtn">
+              Выйти
+            </button>
+          </div>
+          <button class="mobile-menu-toggle" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu">
+      <div class="mobile-menu__header">
+        <div class="logo">
+          <a href="index.html" class="logo__link">
+            <i class="fa-solid fa-paw logo__icon"></i>
+            <span class="logo__text">VetCare</span>
+          </a>
+        </div>
+        <button class="mobile-menu__close" aria-label="Закрыть меню">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <nav class="mobile-menu__nav">
+        <ul class="mobile-menu__list">
+          <li class="mobile-menu__item">
+            <a
+              href="vet-dashboard.html"
+              class="mobile-menu__link mobile-menu__link--active"
+              >Панель врача</a
+            >
+          </li>
+          <li class="mobile-menu__item">
+            <a href="vet-patients.html" class="mobile-menu__link">Пациенты</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="vet-schedule.html" class="mobile-menu__link">Расписание</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="vet-records.html" class="mobile-menu__link">Медкарты</a>
+          </li>
+          <li class="mobile-menu__item">
+            <button
+              class="mobile-menu__link mobile-menu__link--accent"
+              id="mobileLogoutBtn"
+            >
+              Выйти
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <main>
+      <section class="dashboard">
+        <div class="container">
+          <div class="page-header">
+            <h1 class="page-title">Панель ветеринара</h1>
+            <p class="page-description">
+              Добро пожаловать, доктор Иванов! Сегодня 42 пациента
+            </p>
+          </div>
+
+          <div class="dashboard-section">
+            <h2>Ближайшие приемы</h2>
+            <div class="events-grid">
+              <div class="event-card">
+                <div class="event-icon">
+                  <i class="fa-solid fa-stethoscope"></i>
+                </div>
+                <div class="event-content">
+                  <h3>Плановый осмотр</h3>
+                  <p>Барсик - 10:00</p>
+                  <p class="event-owner">Владелец: Мария Петрова</p>
+                </div>
+              </div>
+              <div class="event-card">
+                <div class="event-icon">
+                  <i class="fa-solid fa-syringe"></i>
+                </div>
+                <div class="event-content">
+                  <h3>Вакцинация</h3>
+                  <p>Рекс - 11:30</p>
+                  <p class="event-owner">Владелец: Иван Сидоров</p>
+                </div>
+              </div>
+              <div class="event-card">
+                <div class="event-icon">
+                  <i class="fa-solid fa-file-medical"></i>
+                </div>
+                <div class="event-content">
+                  <h3>Консультация</h3>
+                  <p>Мурка - 14:15</p>
+                  <p class="event-owner">Владелец: Анна Козлова</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-section">
+            <h2>Статистика за месяц</h2>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fa-solid fa-users"></i>
+                </div>
+                <div class="stat-content">
+                  <h3>124</h3>
+                  <p>Пациентов</p>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fa-solid fa-calendar-check"></i>
+                </div>
+                <div class="stat-content">
+                  <h3>89</h3>
+                  <p>Приемов</p>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fa-solid fa-syringe"></i>
+                </div>
+                <div class="stat-content">
+                  <h3>67</h3>
+                  <p>Вакцинаций</p>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fa-solid fa-file-prescription"></i>
+                </div>
+                <div class="stat-content">
+                  <h3>45</h3>
+                  <p>Назначений</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-section">
+            <h2>Недавние пациенты</h2>
+            <div class="patients-grid">
+              <div class="patient-card">
+                <img src="барсик.webp" alt="Барсик" />
+                <h3>Барсик</h3>
+                <p>Кот, 3 года</p>
+                <p class="patient-owner">Мария Петрова</p>
+                <div class="status-badge status-pending">
+                  Требуется вакцинация
+                </div>
+              </div>
+              <div class="patient-card">
+                <div class="patient-avatar">
+                  <i class="fa-solid fa-dog"></i>
+                </div>
+                <h3>Рекс</h3>
+                <p>Собака, 5 лет</p>
+                <p class="patient-owner">Иван Сидоров</p>
+                <div class="status-badge status-confirmed">Осмотр пройден</div>
+              </div>
+              <div class="patient-card">
+                <div class="patient-avatar">
+                  <i class="fa-solid fa-cat"></i>
+                </div>
+                <h3>Мурка</h3>
+                <p>Кошка, 2 года</p>
+                <p class="patient-owner">Анна Козлова</p>
+                <div class="status-badge status-pending">Анализы готовы</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__content">
+          <div class="footer__logo">
+            <a href="index.html" class="logo__link">
+              <i class="fa-solid fa-paw logo__icon"></i>
+              <span class="logo__text">VetCare</span>
+            </a>
+          </div>
+          <nav class="footer__nav">
+            <ul class="footer__nav-list">
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">О нас</a>
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">Контакты</a>
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link"
+                  >Политика конфиденциальности</a
+                >
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">Условия использования</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="footer__copyright">
+            <p>© 2023 VetCare. Все права защищены.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/clinic-data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/vet-dashboard.js"></script>
+  </body>
+</html>

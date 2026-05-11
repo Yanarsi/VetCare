@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Мои записи - VetCare</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__content">
+          <div class="logo">
+            <a href="index.html" class="logo__link"
+              ><i class="fa-solid fa-paw logo__icon"></i
+              ><span class="logo__text">VetCare</span></a
+            >
+          </div>
+          <button class="mobile-menu-toggle">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-header">
+        <div class="container">
+          <h1 class="page-title">Мои записи</h1>
+          <p class="page-description">Запись на приём к ветеринару</p>
+        </div>
+      </section>
+
+      <section class="auth-section">
+        <div class="container">
+          <div class="auth-form-container">
+            <form id="appointmentForm" class="auth-form">
+              <div
+                id="appointmentNotice"
+                class="empty-state"
+                style="display: none; margin-bottom: 1rem"
+              ></div>
+              <div class="form-group">
+                <label for="petSelect" class="form-label"
+                  >Выберите питомца *</label
+                >
+                <select id="petSelect" class="form-select" required></select>
+              </div>
+              <div class="form-group">
+                <label for="vetSelect" class="form-label"
+                  >Выберите врача *</label
+                >
+                <select id="vetSelect" class="form-select" required>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="appointmentDate" class="form-label">Дата *</label>
+                <input
+                  type="date"
+                  id="appointmentDate"
+                  class="form-input"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="appointmentTime" class="form-label">Время *</label>
+                <select id="appointmentTime" class="form-select" required>
+                  <option value="">Выберите</option>
+                  <option value="09:00">09:00</option>
+                  <option value="10:00">10:00</option>
+                  <option value="11:00">11:00</option>
+                  <option value="12:00">12:00</option>
+                  <option value="14:00">14:00</option>
+                  <option value="15:00">15:00</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="appointmentType" class="form-label"
+                  >Тип приёма</label
+                >
+                <select id="appointmentType" class="form-select">
+                  <option value="checkup">Плановый осмотр</option>
+                  <option value="vaccination">Вакцинация</option>
+                  <option value="consultation">Консультация</option>
+                  <option value="treatment">Лечение</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="appointmentReason" class="form-label">Причина обращения</label>
+                <textarea id="appointmentReason" class="form-textarea" rows="3" placeholder="Коротко опишите симптомы или цель визита"></textarea>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn--primary btn--full">
+                  Записаться
+                </button>
+                <a
+                  href="client-dashboard.html"
+                  class="btn btn--outline btn--full"
+                  >Отмена</a
+                >
+              </div>
+            </form>
+          </div>
+
+          <div class="dashboard-section" style="margin-top: 2rem">
+            <h2>Предстоящие записи</h2>
+            <div id="upcomingAppointments" class="events-grid"></div>
+            <div class="form-actions form-actions--end">
+              <a href="client-dashboard.html" class="btn btn--outline">
+                Назад в кабинет
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/clinic-data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/clinic-pages.js"></script>
+    <script>document.addEventListener("DOMContentLoaded", initClientAppointmentsPage);</script>
+  </body>
+</html>

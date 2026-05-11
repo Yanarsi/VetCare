@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VetCare - Забота о питомцах стала проще</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__content">
+          <div class="logo">
+            <a href="index.html" class="logo__link">
+              <i class="fa-solid fa-paw logo__icon"></i>
+              <span class="logo__text">VetCare</span>
+            </a>
+          </div>
+          <nav class="nav">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="#features" class="nav__link">Функции</a>
+              </li>
+              <li class="nav__item">
+                <a href="#about" class="nav__link">О нас</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="header__buttons">
+            <a href="login.html" class="btn btn--outline">Войти</a>
+            <a href="register.html" class="btn btn--primary">Регистрация</a>
+          </div>
+          <button class="mobile-menu-toggle" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu">
+      <div class="mobile-menu__header">
+        <div class="logo">
+          <a href="index.html" class="logo__link">
+            <i class="fa-solid fa-paw logo__icon"></i>
+            <span class="logo__text">VetCare</span>
+          </a>
+        </div>
+        <button class="mobile-menu__close" aria-label="Закрыть меню">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <nav class="mobile-menu__nav">
+        <ul class="mobile-menu__list">
+          <li class="mobile-menu__item">
+            <a href="#features" class="mobile-menu__link">Функции</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="#about" class="mobile-menu__link">О нас</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="login.html" class="mobile-menu__link">Войти</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a
+              href="register.html"
+              class="mobile-menu__link mobile-menu__link--accent"
+              >Регистрация</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero__content">
+            <div class="hero__text">
+              <h1 class="hero__title">Забота о питомцах стала проще</h1>
+              <p class="hero__description">
+                VetCare — ваш персональный помощник по уходу за питомцами.
+                Индивидуальные рекомендации, расчет потребностей и планирование
+                питания в одном месте.
+              </p>
+              <div class="hero__buttons">
+                <a href="register.html" class="btn btn--primary btn--lg">
+                  Зарегистрироваться
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#features" class="btn btn--outline btn--lg"
+                  >Узнать больше</a
+                >
+              </div>
+            </div>
+            <div class="hero__image">
+              <img
+                src="собака.jpeg"
+                alt="Счастливые питомцы"
+                class="hero__img"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="features" id="features">
+        <div class="container">
+          <div class="section-header">
+            <span class="badge">Функции</span>
+            <h2 class="section-title">
+              Все необходимое для заботы о вашем питомце
+            </h2>
+            <p class="section-description">
+              VetCare предлагает полный набор инструментов для ухода за вашим
+              питомцем, от персонализированных рекомендаций до планирования
+              питания.
+            </p>
+          </div>
+
+          <div class="features__grid">
+            <div class="feature-card">
+              <div class="feature-card__icon">
+                <i class="fa-solid fa-paw"></i>
+              </div>
+              <h3 class="feature-card__title">Персонализированный подбор</h3>
+              <p class="feature-card__description">
+                Индивидуальные рекомендации товаров на основе породы, возраста и
+                особенностей вашего питомца.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-card__icon">
+                <i class="fa-solid fa-user-lock"></i>
+              </div>
+              <h3 class="feature-card__title">Доступ после входа</h3>
+              <p class="feature-card__description">
+                Рабочие инструменты открываются в личном кабинете с учетом
+                роли пользователя.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-card__icon">
+                <i class="fa-solid fa-calculator"></i>
+              </div>
+              <h3 class="feature-card__title">Расчет потребностей</h3>
+              <p class="feature-card__description">
+                Автоматический расчет необходимого количества корма, наполнителя
+                и других товаров.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-card__icon">
+                <i class="fa-solid fa-utensils"></i>
+              </div>
+              <h3 class="feature-card__title">Конструктор рациона</h3>
+              <p class="feature-card__description">
+                Создавайте сбалансированный рацион питания с учетом специальных
+                потребностей вашего питомца.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-card__icon">
+                <i class="fa-solid fa-calendar-check"></i>
+              </div>
+              <h3 class="feature-card__title">Календарь напоминаний</h3>
+              <p class="feature-card__description">
+                Интеграция с календарем для напоминаний о вакцинации, приемах у
+                ветеринара и других процедурах.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-card__icon">
+                <i class="fa-solid fa-id-card"></i>
+              </div>
+              <h3 class="feature-card__title">Профиль питомца</h3>
+              <p class="feature-card__description">
+                Создайте детальный профиль вашего питомца для получения
+                персонализированных рекомендаций.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pet-profile" id="about">
+        <div class="container">
+          <div class="pet-profile__content">
+            <div class="pet-profile__text">
+              <h2 class="pet-profile__title">
+                Личный кабинет после входа
+              </h2>
+              <p class="pet-profile__description">
+                Рабочие функции открываются только после авторизации. Владелец
+                питомца видит своих животных, записи, медкарты, календарь и
+                помощника, врач работает с пациентами и расписанием, а
+                администратор управляет клиникой.
+              </p>
+              <ul class="pet-profile__benefits">
+                <li class="pet-profile__benefit">
+                  <i class="fa-solid fa-paw"></i>
+                  <span>Клиент добавляет питомцев и записывается на прием</span>
+                </li>
+                <li class="pet-profile__benefit">
+                  <i class="fa-solid fa-paw"></i>
+                  <span>Врач ведет медкарты, вакцинации и назначения</span>
+                </li>
+                <li class="pet-profile__benefit">
+                  <i class="fa-solid fa-paw"></i>
+                  <span>Администратор контролирует пользователей и записи</span>
+                </li>
+                <li class="pet-profile__benefit">
+                  <i class="fa-solid fa-paw"></i>
+                  <span>Данные сохраняются локально в браузере</span>
+                </li>
+              </ul>
+            </div>
+            <div class="pet-profile__form-container">
+              <div class="pet-profile-form">
+                <h3 class="pet-profile-form__title">Начните работу</h3>
+                <p>
+                  После регистрации система откроет нужную панель по выбранной
+                  роли. Создание питомца доступно в личном кабинете клиента.
+                </p>
+                <div class="form-actions">
+                  <a href="register.html" class="btn btn--primary btn--full">
+                    Зарегистрироваться
+                  </a>
+                  <a href="login.html" class="btn btn--outline btn--full">
+                    Войти
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta">
+        <div class="container">
+          <div class="cta__content">
+            <h2 class="cta__title">Присоединяйтесь к VetCare сегодня</h2>
+            <p class="cta__description">
+              Более 10,000 владельцев питомцев уже используют наш сервис для
+              заботы о своих любимцах.
+            </p>
+            <div class="cta__buttons">
+              <a href="register.html" class="btn btn--primary btn--lg"
+                >Зарегистрироваться бесплатно</a
+              >
+              <a href="#features" class="btn btn--outline btn--lg"
+                >Узнать больше</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__content">
+          <div class="footer__logo">
+            <a href="index.html" class="logo__link">
+              <i class="fa-solid fa-paw logo__icon"></i>
+              <span class="logo__text">VetCare</span>
+            </a>
+          </div>
+          <nav class="footer__nav">
+            <ul class="footer__nav-list">
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">О нас</a>
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">Контакты</a>
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link"
+                  >Политика конфиденциальности</a
+                >
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">Условия использования</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="footer__copyright">
+            <p>© 2026 VetCare . Все права защищены.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/storage.js"></script>
+  </body>
+</html>

@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Калькулятор корма - VetCare</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .calculator-result {
+        margin-top: 2rem;
+        padding: 1.5rem;
+        background-color: var(--color-primary-light);
+        border-radius: var(--radius-lg);
+        text-align: center;
+        display: none;
+      }
+      .calculator-result.active {
+        display: block;
+      }
+      .result-amount {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--color-primary-dark);
+        margin: 0.5rem 0;
+      }
+      .result-unit {
+        font-size: 1rem;
+        color: var(--color-text-light);
+      }
+      .pet-selector {
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        background-color: var(--color-background-alt);
+        border-radius: var(--radius-lg);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__content">
+          <div class="logo">
+            <a href="index.html" class="logo__link">
+              <i class="fa-solid fa-paw logo__icon"></i>
+              <span class="logo__text">VetCare</span>
+            </a>
+          </div>
+          <nav class="nav">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="index.html#features" class="nav__link">Функции</a>
+              </li>
+              <li class="nav__item">
+                <a href="pet-assistant.html" class="nav__link">Помощник</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="header__buttons">
+            <a href="login.html" class="btn btn--outline">Войти</a>
+            <a href="register.html" class="btn btn--primary">Регистрация</a>
+          </div>
+          <div class="user-menu">
+            <span class="user-name"></span>
+            <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
+            <button class="btn btn--outline btn--sm" id="logoutBtn">
+              Выйти
+            </button>
+          </div>
+          <button class="mobile-menu-toggle" aria-label="Открыть меню">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu">
+      <div class="mobile-menu__header">
+        <div class="logo">
+          <a href="index.html" class="logo__link"
+            ><i class="fa-solid fa-paw logo__icon"></i
+            ><span class="logo__text">VetCare</span></a
+          >
+        </div>
+        <button class="mobile-menu__close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <nav class="mobile-menu__nav">
+        <ul class="mobile-menu__list">
+          <li class="mobile-menu__item">
+            <a href="index.html#features" class="mobile-menu__link">Функции</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="pet-assistant.html" class="mobile-menu__link">Помощник</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="calculator.html" class="mobile-menu__link"
+              >Калькулятор корма</a
+            >
+          </li>
+          <li class="mobile-menu__item">
+            <a href="login.html" class="mobile-menu__link">Войти</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a
+              href="register.html"
+              class="mobile-menu__link mobile-menu__link--accent"
+              >Регистрация</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <main>
+      <section class="page-header">
+        <div class="container">
+          <h1 class="page-title">Калькулятор корма</h1>
+          <p class="page-description">
+            Рассчитайте суточную норму корма для вашего питомца
+          </p>
+        </div>
+      </section>
+
+      <section class="assistant">
+        <div class="container">
+          <div class="assistant__content" style="display: block">
+            <div class="pet-selector" id="petSelector" style="display: none">
+              <label class="form-label">Выберите питомца</label>
+              <select id="petSelect" class="form-select">
+                <option value="">-- Выберите из списка --</option>
+              </select>
+              <p class="form-hint">Или заполните форму ниже вручную</p>
+            </div>
+
+            <form id="calculatorForm" class="calculator-form">
+              <div class="form-group">
+                <label for="weight" class="form-label"
+                  >Вес питомца (кг) *</label
+                >
+                <input
+                  type="number"
+                  id="weight"
+                  class="form-input"
+                  step="0.1"
+                  min="0.5"
+                  placeholder="Например: 5.2"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="age" class="form-label">Возрастная категория</label>
+                <select id="age" class="form-select">
+                  <option value="baby">Щенок/Котёнок (до 1 года)</option>
+                  <option value="adult" selected>Взрослый (1-7 лет)</option>
+                  <option value="senior">Пожилой (старше 7 лет)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="activity" class="form-label"
+                  >Уровень активности</label
+                >
+                <select id="activity" class="form-select">
+                  <option value="low">Низкий (мало двигается)</option>
+                  <option value="medium" selected>
+                    Средний (обычные прогулки)
+                  </option>
+                  <option value="high">
+                    Высокий (активные игры, тренировки)
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="type" class="form-label">Тип питомца</label>
+                <select id="type" class="form-select">
+                  <option value="cat">Кошка</option>
+                  <option value="dog">Собака</option>
+                </select>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn--primary btn--full">
+                  Рассчитать норму
+                </button>
+              </div>
+            </form>
+
+            <div id="result" class="calculator-result">
+              <h3>Результат расчёта</h3>
+              <div class="result-amount" id="resultAmount">0</div>
+              <div class="result-unit">грамм в день</div>
+              <p
+                id="resultDetails"
+                style="margin-top: 1rem; font-size: 0.875rem"
+              ></p>
+              <button
+                class="btn btn--outline"
+                id="resetBtn"
+                style="margin-top: 1rem"
+              >
+                Новый расчёт
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__content">
+          <div class="footer__logo">
+            <a href="index.html" class="logo__link"
+              ><i class="fa-solid fa-paw logo__icon"></i
+              ><span class="logo__text">VetCare</span></a
+            >
+          </div>
+          <nav class="footer__nav">
+            <ul class="footer__nav-list">
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">О нас</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="footer__copyright">
+            <p>© 2026 VetCare. Все права защищены.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+      // Проверяем авторизацию и показываем список питомцев
+      if (authService.isAuthenticated() && authService.isClient()) {
+        document.querySelector(".user-name").textContent =
+          authService.currentUser.name;
+        document.querySelector(".header__buttons").style.display = "none";
+        document.querySelector(".user-menu").style.display = "flex";
+
+        // Загружаем питомцев текущего владельца
+        const allPets = JSON.parse(AppStorage.getItem("pets") || "[]");
+        const myPets = allPets.filter(
+          (p) => p.ownerId == authService.currentUser.id,
+        );
+
+        if (myPets.length > 0) {
+          const petSelector = document.getElementById("petSelector");
+          const petSelect = document.getElementById("petSelect");
+          petSelector.style.display = "block";
+
+          myPets.forEach((pet) => {
+            const option = document.createElement("option");
+            option.value = pet.id;
+            option.textContent = `${pet.name} (${pet.type === "cat" ? "Кошка" : "Собака"}, ${pet.weight ? pet.weight + " кг" : "вес не указан"})`;
+            option.dataset.weight = pet.weight;
+            option.dataset.type = pet.type;
+            option.dataset.age = pet.age
+              ? pet.age < 1
+                ? "baby"
+                : pet.age > 7
+                  ? "senior"
+                  : "adult"
+              : "adult";
+            petSelect.appendChild(option);
+          });
+
+          petSelect.addEventListener("change", function () {
+            const selected = this.options[this.selectedIndex];
+            if (selected && selected.value) {
+              if (selected.dataset.weight)
+                document.getElementById("weight").value =
+                  selected.dataset.weight;
+              if (selected.dataset.type)
+                document.getElementById("type").value = selected.dataset.type;
+              if (selected.dataset.age)
+                document.getElementById("age").value = selected.dataset.age;
+            }
+          });
+        }
+      } else {
+        document.querySelector(".user-menu").style.display = "none";
+        document.querySelector(".header__buttons").style.display = "flex";
+      }
+
+      // Функция расчёта суточной нормы корма
+      function calculateFood(weight, age, activity, type) {
+        let baseCalories;
+
+        if (type === "cat") {
+          // Формула для кошек: 70 * вес^0.75
+          baseCalories = 70 * Math.pow(weight, 0.75);
+        } else {
+          // Формула для собак: 70 * вес^0.75
+          baseCalories = 70 * Math.pow(weight, 0.75);
+        }
+
+        // Корректировка по возрасту
+        if (age === "baby") {
+          baseCalories *= 2.0; // Щенки/котята
+        } else if (age === "senior") {
+          baseCalories *= 0.8; // Пожилые
+        }
+
+        // Корректировка по активности
+        if (activity === "low") {
+          baseCalories *= 0.9;
+        } else if (activity === "high") {
+          baseCalories *= 1.2;
+        }
+
+        // Переводим калории в граммы корма (средняя калорийность 400 ккал/100г)
+        const gramsPerDay = Math.round(baseCalories / 4);
+
+        return {
+          calories: Math.round(baseCalories),
+          grams: gramsPerDay,
+        };
+      }
+
+      // Обработчик формы
+      document
+        .getElementById("calculatorForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const weight = parseFloat(document.getElementById("weight").value);
+          const age = document.getElementById("age").value;
+          const activity = document.getElementById("activity").value;
+          const type = document.getElementById("type").value;
+
+          if (!weight || weight < 0.5) {
+            alert(
+              "Пожалуйста, введите корректный вес питомца (не менее 0.5 кг)",
+            );
+            return;
+          }
+
+          const result = calculateFood(weight, age, activity, type);
+
+          document.getElementById("resultAmount").textContent = result.grams;
+
+          let details = `${result.calories} ккал/день · `;
+          if (type === "cat")
+            details += "Для кошек рекомендуется кормить 2-3 раза в день";
+          else details += "Для собак рекомендуется кормить 2 раза в день";
+
+          if (age === "baby")
+            details += ". Щенкам/котятам требуется более частое кормление";
+          if (activity === "high")
+            details += ". При высокой активности увеличьте порцию";
+
+          document.getElementById("resultDetails").textContent = details;
+          document.getElementById("result").classList.add("active");
+          document.getElementById("calculatorForm").style.display = "none";
+        });
+
+      document
+        .getElementById("resetBtn")
+        .addEventListener("click", function () {
+          document.getElementById("result").classList.remove("active");
+          document.getElementById("calculatorForm").style.display = "block";
+          document.getElementById("calculatorForm").reset();
+          document.getElementById("weight").focus();
+        });
+
+      // Обработка выхода
+      const logoutBtn = document.getElementById("logoutBtn");
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", () => authService.logout());
+      }
+    </script>
+  </body>
+</html>

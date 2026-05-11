@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Интерактивный помощник - VetCare</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__content">
+          <div class="logo">
+            <a href="index.html" class="logo__link">
+              <i class="fa-solid fa-paw logo__icon"></i>
+              <span class="logo__text">VetCare</span>
+            </a>
+          </div>
+          <nav class="nav">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="index.html#features" class="nav__link">Функции</a>
+              </li>
+              <li class="nav__item">
+                <a href="index.html#pet-profile" class="nav__link"
+                  >Профиль питомца</a
+                >
+              </li>
+
+              <li class="nav__item">
+                <a href="pet-assistant.html" class="nav__link"
+                  >Интерактивный помощник</a
+                >
+              </li>
+
+              <li class="nav__item">
+                <a href="index.html#about" class="nav__link">О нас</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="header__buttons">
+            <a href="login.html" class="btn btn--outline">Войти</a>
+            <a href="register.html" class="btn btn--primary">Регистрация</a>
+          </div>
+          <div class="user-menu">
+            <span class="user-name">Пользователь</span>
+            <div class="user-avatar">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <button class="btn btn--outline btn--sm" id="logoutBtn">
+              Выйти
+            </button>
+          </div>
+          <button class="mobile-menu-toggle" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu">
+      <div class="mobile-menu__header">
+        <div class="logo">
+          <a href="index.html" class="logo__link">
+            <i class="fa-solid fa-paw logo__icon"></i>
+            <span class="logo__text">VetCare</span>
+          </a>
+        </div>
+        <button class="mobile-menu__close" aria-label="Закрыть меню">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <nav class="mobile-menu__nav">
+        <ul class="mobile-menu__list">
+          <li class="mobile-menu__item">
+            <a href="index.html#features" class="mobile-menu__link">Функции</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="index.html#pet-profile" class="mobile-menu__link"
+              >Профиль питомца</a
+            >
+          </li>
+
+          <li class="mobile-menu__item">
+            <a href="index.html#about" class="mobile-menu__link">О нас</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="login.html" class="mobile-menu__link">Войти</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a
+              href="register.html"
+              class="mobile-menu__link mobile-menu__link--accent"
+              >Регистрация</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <main>
+      <section class="page-header">
+        <div class="container">
+          <h1 class="page-title">Интерактивный помощник</h1>
+          <p class="page-description">
+            Получите персонализированные рекомендации по уходу за вашим питомцем
+          </p>
+        </div>
+      </section>
+
+      <section class="assistant">
+        <div class="container">
+          <div class="assistant__content">
+            <div class="assistant__main">
+              <div class="tabs">
+                <div class="tabs__header">
+                  <button class="tabs__btn tabs__btn--active" data-tab="chat">
+                    Чат
+                  </button>
+                  <button class="tabs__btn" data-tab="health">Здоровье</button>
+                </div>
+                <div class="tabs__content">
+                  <div
+                    class="tabs__pane tabs__pane--active"
+                    data-tab-content="chat"
+                  >
+                    <div class="chat">
+                      <div class="chat__messages" id="chatMessages">
+                        <div class="chat__message chat__message--assistant">
+                          <div class="chat__avatar">
+                            <img
+                              src="ассистент.png"
+                              alt="Ассистент"
+                              class="chat__avatar-img"
+                            />
+                          </div>
+                          <div class="chat__bubble">
+                            <div class="chat__sender">VetCare Ассистент</div>
+                            <div class="chat__text">
+                              Привет! Я ваш интерактивный помощник по уходу за
+                              питомцами. Чем я могу помочь вам сегодня?
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="chat__input">
+                        <input
+                          type="text"
+                          class="form-input"
+                          id="chatInput"
+                          placeholder="Задайте вопрос о вашем питомце..."
+                        />
+                        <button
+                          class="btn btn--primary chat__send"
+                          id="sendMessage"
+                        >
+                          <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tabs__pane" data-tab-content="health">
+                    <h2 class="tabs__title">Здоровье питомца</h2>
+                    <div class="health-section">
+                      <h3 class="health-section__title">Ближайшие процедуры</h3>
+                      <div class="health-procedures" id="healthProcedures"></div>
+                    </div>
+                    <div class="health-section">
+                      <h3 class="health-section__title">Мониторинг веса</h3>
+                      <div class="weight-chart" id="weightSummary"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="assistant__sidebar">
+              <div class="pet-profile-card" id="assistantPetCard"></div>
+
+              <div class="quick-actions">
+                <h3 class="quick-actions__title">Быстрые действия</h3>
+                <div class="quick-actions__grid">
+                  <a href="calculator.html" class="quick-action">
+                    <i class="fa-solid fa-calculator"></i>
+                    <span>Расчет корма</span>
+                  </a>
+                  <a href="calendar.html" class="quick-action">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>Календарь</span>
+                  </a>
+                  <a href="diet.html" class="quick-action">
+                    <i class="fa-solid fa-utensils"></i>
+                    <span>Рацион</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__content">
+          <div class="footer__logo">
+            <a href="index.html" class="logo__link">
+              <i class="fa-solid fa-paw logo__icon"></i>
+              <span class="logo__text">VetCare</span>
+            </a>
+          </div>
+          <nav class="footer__nav">
+            <ul class="footer__nav-list">
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">О нас</a>
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">Контакты</a>
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link"
+                  >Политика конфиденциальности</a
+                >
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">Условия использования</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="footer__copyright">
+            <p>© 2023 VetCare. Все права защищены.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/clinic-data.js"></script>
+    <script src="js/auth.js"></script>
+    <!-- сначала auth -->
+    <script src="js/assistant.js"></script>
+    <!-- потом assistant -->
+  </body>
+</html>

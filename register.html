@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Регистрация - VetCare</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__content">
+          <div class="logo">
+            <a href="index.html" class="logo__link">
+              <i class="fa-solid fa-paw logo__icon"></i>
+              <span class="logo__text">VetCare</span>
+            </a>
+          </div>
+          <nav class="nav">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="index.html#features" class="nav__link">Функции</a>
+              </li>
+              <li class="nav__item">
+                <a href="index.html#about" class="nav__link">О нас</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="header__buttons">
+            <a href="login.html" class="btn btn--outline">Войти</a>
+            <a href="register.html" class="btn btn--primary">Регистрация</a>
+          </div>
+          <div class="user-menu">
+            <span class="user-name">Пользователь</span>
+            <div class="user-avatar">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <button class="btn btn--outline btn--sm" id="logoutBtn">
+              Выйти
+            </button>
+          </div>
+          <button class="mobile-menu-toggle" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu">
+      <div class="mobile-menu__header">
+        <div class="logo">
+          <a href="index.html" class="logo__link">
+            <i class="fa-solid fa-paw logo__icon"></i>
+            <span class="logo__text">VetCare</span>
+          </a>
+        </div>
+        <button class="mobile-menu__close" aria-label="Закрыть меню">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <nav class="mobile-menu__nav">
+        <ul class="mobile-menu__list">
+          <li class="mobile-menu__item">
+            <a href="index.html#features" class="mobile-menu__link">Функции</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="index.html#about" class="mobile-menu__link">О нас</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="login.html" class="mobile-menu__link">Войти</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a
+              href="register.html"
+              class="mobile-menu__link mobile-menu__link--accent"
+              >Регистрация</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <main>
+      <section class="page-header">
+        <div class="container">
+          <h1 class="page-title">Регистрация</h1>
+          <p class="page-description">Создайте аккаунт в VetCare</p>
+        </div>
+      </section>
+
+      <section class="auth-section">
+        <div class="container">
+          <div class="auth-form-container">
+            <form id="registerForm" class="auth-form">
+              <div class="form-group">
+                <label for="name" class="form-label">ФИО</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-input"
+                  placeholder="Иванов Иван Иванович"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="your@email.com"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="phone" class="form-label">Телефон</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="form-input"
+                  placeholder="+7 (999) 123-45-67"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="password" class="form-label">Пароль</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="form-input"
+                  placeholder="Не менее 6 символов"
+                  required
+                  minlength="6"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Регистрация как:</label>
+                <div class="radio-group">
+                  <label class="radio-label">
+                    <input type="radio" name="role" value="client" checked />
+                    <span class="radio-text">Владелец питомца</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="role" value="vet" />
+                    <span class="radio-text">Ветеринар</span>
+                  </label>
+                </div>
+              </div>
+
+              <div
+                class="form-group"
+                id="specializationField"
+                style="display: none"
+              >
+                <label for="specialization" class="form-label"
+                  >Специализация</label
+                >
+                <select
+                  id="specialization"
+                  name="specialization"
+                  class="form-select"
+                >
+                  <option value="">Выберите специализацию</option>
+                  <option value="therapist">Терапевт</option>
+                  <option value="surgeon">Хирург</option>
+                  <option value="dermatologist">Дерматолог</option>
+                  <option value="ophthalmologist">Офтальмолог</option>
+                  <option value="dentist">Стоматолог</option>
+                  <option value="cardiologist">Кардиолог</option>
+                  <option value="neurologist">Невролог</option>
+                  <option value="other">Другое</option>
+                </select>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn--primary btn--full">
+                  Зарегистрироваться
+                </button>
+              </div>
+
+              <div class="auth-form__footer">
+                <p>Уже есть аккаунт? <a href="login.html">Войти</a></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__content">
+          <div class="footer__logo">
+            <a href="index.html" class="logo__link">
+              <i class="fa-solid fa-paw logo__icon"></i>
+              <span class="logo__text">VetCare</span>
+            </a>
+          </div>
+          <nav class="footer__nav">
+            <ul class="footer__nav-list">
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">О нас</a>
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">Контакты</a>
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link"
+                  >Политика конфиденциальности</a
+                >
+              </li>
+              <li class="footer__nav-item">
+                <a href="#" class="footer__nav-link">Условия использования</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="footer__copyright">
+            <p>© 2023 VetCare. Все права защищены.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>

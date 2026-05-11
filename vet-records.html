@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Медкарты - VetCare</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header"><div class="container"><div class="header__content">
+      <div class="logo"><a href="index.html" class="logo__link"><i class="fa-solid fa-paw logo__icon"></i><span class="logo__text">VetCare</span></a></div>
+      <nav class="nav"><ul class="nav__list"></ul></nav>
+      <div class="header__buttons"><a href="login.html" class="btn btn--outline">Войти</a><a href="register.html" class="btn btn--primary">Регистрация</a></div>
+      <div class="user-menu"><span class="user-name">Пользователь</span><div class="user-avatar"><i class="fa-solid fa-user-md"></i></div><button class="btn btn--outline btn--sm" id="logoutBtn">Выйти</button></div>
+      <button class="mobile-menu-toggle" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+    </div></div></header>
+    <main>
+      <section class="page-header"><div class="container"><h1 class="page-title">Медицинские карты</h1><p class="page-description">Осмотры, диагнозы, назначения и календарь профилактики</p></div></section>
+      <section class="dashboard">
+        <div class="container">
+          <div class="dashboard-layout">
+            <div class="dashboard-panel">
+              <h2>Новая запись</h2>
+              <form id="recordForm">
+                <div class="form-group"><label for="recordPet" class="form-label">Пациент *</label><select id="recordPet" class="form-select" required></select></div>
+                <div class="form-grid">
+                  <div class="form-group"><label for="recordDate" class="form-label">Дата *</label><input type="date" id="recordDate" class="form-input" required /></div>
+                  <div class="form-group"><label for="recordType" class="form-label">Тип</label><select id="recordType" class="form-select"><option value="checkup">Осмотр</option><option value="vaccination">Вакцинация</option><option value="treatment">Лечение</option><option value="consultation">Консультация</option><option value="surgery">Операция</option></select></div>
+                </div>
+                <div class="form-group"><label for="symptoms" class="form-label">Симптомы</label><textarea id="symptoms" class="form-textarea" rows="3"></textarea></div>
+                <div class="form-group"><label for="diagnosis" class="form-label">Диагноз *</label><textarea id="diagnosis" class="form-textarea" rows="3" required></textarea></div>
+                <div class="form-group"><label for="treatment" class="form-label">Лечение</label><textarea id="treatment" class="form-textarea" rows="3"></textarea></div>
+                <div class="form-group"><label for="prescriptions" class="form-label">Назначения</label><textarea id="prescriptions" class="form-textarea" rows="3"></textarea></div>
+                <div class="form-group"><label for="recommendations" class="form-label">Рекомендации</label><textarea id="recommendations" class="form-textarea" rows="3"></textarea></div>
+                <div class="form-grid">
+                  <div class="form-group"><label for="reminderTitle" class="form-label">Напоминание</label><input type="text" id="reminderTitle" class="form-input" placeholder="Например, ревакцинация" /></div>
+                  <div class="form-group"><label for="reminderDate" class="form-label">Дата напоминания</label><input type="date" id="reminderDate" class="form-input" /></div>
+                </div>
+                <button type="submit" class="btn btn--primary">Сохранить медзапись</button>
+              </form>
+            </div>
+            <div class="dashboard-panel dashboard-panel--wide"><h2>История</h2><div id="recordsList" class="medical-records-list"></div></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="js/main.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/clinic-data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/clinic-pages.js"></script>
+    <script>document.addEventListener("DOMContentLoaded", initVetRecordsPage);</script>
+  </body>
+</html>

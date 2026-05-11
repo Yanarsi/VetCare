@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Расписание - VetCare</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header"><div class="container"><div class="header__content">
+      <div class="logo"><a href="index.html" class="logo__link"><i class="fa-solid fa-paw logo__icon"></i><span class="logo__text">VetCare</span></a></div>
+      <nav class="nav"><ul class="nav__list"></ul></nav>
+      <div class="header__buttons"><a href="login.html" class="btn btn--outline">Войти</a><a href="register.html" class="btn btn--primary">Регистрация</a></div>
+      <div class="user-menu"><span class="user-name">Пользователь</span><div class="user-avatar"><i class="fa-solid fa-user-md"></i></div><button class="btn btn--outline btn--sm" id="logoutBtn">Выйти</button></div>
+      <button class="mobile-menu-toggle" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+    </div></div></header>
+    <main>
+      <section class="page-header"><div class="container"><h1 class="page-title">Расписание</h1><p class="page-description">Записи на приём, вакцинации и плановые процедуры</p></div></section>
+      <section class="dashboard">
+        <div class="container">
+          <div class="dashboard-layout">
+            <div class="dashboard-panel">
+              <h2>Добавить запись</h2>
+              <form id="scheduleForm">
+                <div class="form-group"><label for="schedulePet" class="form-label">Пациент *</label><select id="schedulePet" class="form-select" required></select></div>
+                <div class="form-group" id="scheduleVetGroup"><label for="scheduleVet" class="form-label">Врач *</label><select id="scheduleVet" class="form-select"></select></div>
+                <div class="form-grid">
+                  <div class="form-group"><label for="scheduleDate" class="form-label">Дата *</label><input type="date" id="scheduleDate" class="form-input" required /></div>
+                  <div class="form-group"><label for="scheduleTime" class="form-label">Время *</label><input type="time" id="scheduleTime" class="form-input" required /></div>
+                </div>
+                <div class="form-group"><label for="scheduleType" class="form-label">Тип</label><select id="scheduleType" class="form-select"><option value="checkup">Плановый осмотр</option><option value="vaccination">Вакцинация</option><option value="consultation">Консультация</option><option value="treatment">Лечение</option><option value="surgery">Операция</option></select></div>
+                <div class="form-group"><label for="scheduleReason" class="form-label">Комментарий</label><textarea id="scheduleReason" class="form-textarea" rows="3"></textarea></div>
+                <button type="submit" class="btn btn--primary">Сохранить запись</button>
+              </form>
+            </div>
+            <div class="dashboard-panel dashboard-panel--wide">
+              <h2>Календарь записей</h2>
+              <div class="table-wrap"><table class="data-table"><thead><tr><th>Дата</th><th>Пациент</th><th>Владелец</th><th>Врач</th><th>Тип</th><th>Статус</th><th></th></tr></thead><tbody id="scheduleTableBody"></tbody></table></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="js/main.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/clinic-data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/clinic-pages.js"></script>
+    <script>document.addEventListener("DOMContentLoaded", initVetSchedulePage);</script>
+  </body>
+</html>
